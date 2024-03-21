@@ -31,9 +31,9 @@ if (productService.getProduct1(merchantStock.getProductid())!= null)
 
         for (int i = 0; i < this.merchantStocks.size(); i++) {
             if (this.merchantStocks.get(i).getId().equalsIgnoreCase(id)) {
-                
+                 if (productService.getProduct1(merchantStock.getProductid())!= null && merchantService.getMerchant1(merchantStock.getMerchantid()) != null) {
                 this.merchantStocks.set(i, merchantStock);
-                return true;
+                return true;}
             }
         }
         return false;
