@@ -8,15 +8,15 @@ import java.util.ArrayList;
 @Service
 public class ProductService {
     ArrayList<Product> products = new ArrayList<>();
-    private 
+    private final CategoryService categoryService;
 
     public ArrayList<Product> getProduct() {
         return products;
     }
 
     public void addProduct(Product product) {
-
-        for
+        
+        if (categoryService.oneCategory(product.getCategoryId())!= null)
       products.add(product);
     }
 
