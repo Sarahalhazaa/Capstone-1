@@ -7,14 +7,23 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
+@RequiredArgsConstructor
 public class MerchantStockService {
+     private final ProductService productService;
+    private final MerchantService merchantService;
     ArrayList<MerchantStock> merchantStocks = new ArrayList<>();
 
     public ArrayList<MerchantStock> getMerchantStock() {
+        for (int i = 0; i < this.merchantStocks.size(); i++) {
+            if (productService.getProduct1(merchantStocks.get(i).getProductid())== null || merchantService.getMerchant1(merchantStocks.get(i).getMerchantid()) == null) {
+                   merchantStocks.remove(i);
+                } }
         return merchantStocks;
     }
 
     public void addMerchantStock(MerchantStock merchantStock) {
+if (productService.getProduct1(merchantStock.getProductid())!= null)
+    if (merchantService.getMerchant1(merchantStock.getMerchantid())!=null)
         this.merchantStocks.add(merchantStock);
     }
 
@@ -22,6 +31,7 @@ public class MerchantStockService {
 
         for (int i = 0; i < this.merchantStocks.size(); i++) {
             if (this.merchantStocks.get(i).getId().equalsIgnoreCase(id)) {
+                
                 this.merchantStocks.set(i, merchantStock);
                 return true;
             }
