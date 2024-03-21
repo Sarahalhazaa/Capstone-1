@@ -8,13 +8,16 @@ import java.util.ArrayList;
 @Service
 public class ProductService {
     ArrayList<Product> products = new ArrayList<>();
+    private 
 
     public ArrayList<Product> getProduct() {
         return products;
     }
 
     public void addProduct(Product product) {
-        this.products.add(product);
+
+        for
+      products.add(product);
     }
 
     public boolean updateProduct(String id, Product product) {
