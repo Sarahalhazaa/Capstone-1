@@ -38,4 +38,13 @@ public class MerchantService {
         return false;
     }
     //----------------------------------  end CRUD  --------------------------------------
+
+     public Merchant getMerchant1(String id) {
+        for (int u = 0; u < merchants.size(); u++) {
+            if (merchants.get(u).getId().equalsIgnoreCase(id)) {
+                return merchants.get(u);
+            }
+        }
+        return null;
+    }
 }
