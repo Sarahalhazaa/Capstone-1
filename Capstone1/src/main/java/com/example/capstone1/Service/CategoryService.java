@@ -57,4 +57,13 @@ public class CategoryService {
             }
         return products1;
     }
+public Category oneCategory(String id) {
+        for (int i = 0; i < categories.size(); i++)
+            if (categories.get(i).getId().equalsIgnoreCase(id)) {
+                   return categories.get(i);
+                    }
+        return null;
+    }
+
+    
 }
